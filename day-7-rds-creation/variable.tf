@@ -31,6 +31,7 @@ variable "username" {
 variable "password" {
     description = "the password for database"
     type = string
+    default = "Swathi=123"
   
 }
 variable "subnets" {
@@ -91,4 +92,9 @@ variable "security_group_description" {
     description = "security group description"
     type = string
   
+}
+variable "db_password" {
+  description = "RDS admin password"
+  type        = string
+  sensitive   = true
 }

@@ -37,7 +37,7 @@ locals {
 }
 
 module "rds" {
-  source = "../day-7 _rdssource _code"
+  source = "..terraforn-practice/day-7-rds-creation"
 
   db_identifier              = "my-db"
   engine                     = "mysql"
