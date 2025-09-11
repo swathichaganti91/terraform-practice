@@ -51,7 +51,7 @@ resource "aws_security_group" "ec2_sg" {
 # Create an EC2 instance
 resource "aws_instance" "my_ec2" {
   ami           = "ami-0b982602dbb32c5bd"   # Amazon Linux 2023 in ap-south-1
-  instance_type = "t2.micro"
+  instance_type = "t3.micro"
   key_name      = "ap-south-1a"                  # Change to your key pair name
   security_groups = [aws_security_group.ec2_sg.name]
 
