@@ -13,7 +13,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: Day-10-import
+        working-directory: day-10-import
 
     steps:
       - name: Checkout repository
