@@ -63,6 +63,9 @@ resource "aws_s3_bucket" "my_bucket" {
   bucket = "my-simple-gcfrdtghbczzsgbkzw-bucket"
   acl    = "private"
 }
+terraform init -migrate-state
+terraform import aws_s3_bucket.my_bucket my-simple-gcfrdtghbczzsgbkzw-bucket
+
 terraform {
   backend "s3" {
     bucket = "my-simple-gcfrdtghbczzsgbkzw-bucket"  # Your existing S3 bucket
