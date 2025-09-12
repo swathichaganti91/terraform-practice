@@ -59,10 +59,10 @@ provider "aws" {
    # Name = "Jenkins---EC2"
   #}
 #}
-resource "aws_s3_bucket" "my_bucket" {
-  bucket = "my-simple-gcfrdtghbczzsgbkzw-bucket"
-  acl    = "private"
-}
+#resource "aws_s3_bucket" "my_bucket" {
+ # bucket = "my-simple-gcfrdtghbczzsgbkzw-bucket"
+  #acl    = "private"
+#}
 terraform init -migrate-state
 terraform import aws_s3_bucket.my_bucket my-simple-gcfrdtghbczzsgbkzw-bucket
 
