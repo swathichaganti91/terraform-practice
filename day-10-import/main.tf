@@ -63,16 +63,24 @@ provider "aws" {
  # bucket = "my-simple-gcfrdtghbczzsgbkzw-bucket"
   #acl    = "private"
 #}
-terraform init -migrate-state
-terraform import aws_s3_bucket.my_bucket my-simple-gcfrdtghbczzsgbkzw-bucket
-
 terraform {
+  required_version = ">= 1.6.6"
+
   backend "s3" {
-    bucket = "my-simple-gcfrdtghbczzsgbkzw-bucket"  # Your existing S3 bucket
-    key    = "terraform-practice/day-10-import/terraform.tfstate"  # Path inside bucket
-    region = "ap-south-1"                                 # Bucket region
-    encrypt = true                                        # Enable encryption
+    bucket  = "my-simple-gcfrdtghbczzsgbkzw-bucket"
+    key     = "terraform-practice/day-10-import/terraform.tfstate"
+    region  = "ap-south-1"
+    encrypt = true
   }
+}
+
+provider "aws" {
+  region = "ap-south-1"
+}
+
+resource "aws_s3_bucket" "my_bucket" {
+  bucket = "my-simple-gcfrdtghbczzsgbkzw-bucket"
+  # remove 'acl' to avoid deprecation warning
 }
 
 
