@@ -63,5 +63,13 @@ resource "aws_s3_bucket" "my_bucket" {
   bucket = "my-simple-gcfrdtghbczzsgbkzw-bucket"
   acl    = "private"
 }
+terraform {
+  backend "s3" {
+    bucket = "my-simple-gcfrdtghbczzsgbkzw-bucket"  # Your existing S3 bucket
+    key    = "terraform-practice/day-10-import/terraform.tfstate"  # Path inside bucket
+    region = "ap-south-1"                                 # Bucket region
+    encrypt = true                                        # Enable encryption
+  }
+}
 
 
