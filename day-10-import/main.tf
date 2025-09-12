@@ -63,6 +63,11 @@ provider "aws" {
  # bucket = "my-simple-gcfrdtghbczzsgbkzw-bucket"
   #acl    = "private"
 #}
+# Specify the AWS provider
+provider "aws" {
+  region = "ap-south-1"   # Change region if needed
+}
+
 terraform {
   required_version = ">= 1.6.6"
 
@@ -74,13 +79,10 @@ terraform {
   }
 }
 
-provider "aws" {
-  region = "ap-south-1"
-}
-
+# Example: Create an S3 bucket (will fail if it already exists)
 resource "aws_s3_bucket" "my_bucket" {
   bucket = "my-simple-gcfrdtghbczzsgbkzw-bucket"
-  # remove 'acl' to avoid deprecation warning
+  # do not use "acl" to avoid deprecation warning
 }
 
 
